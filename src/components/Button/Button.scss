@@ -1,0 +1,25 @@
+@import '../../static/_global.scss';
+
+.button {
+    font-weight: 550;
+    font-size: 16px;
+    border-radius: 26px;
+    padding: 0 16px;
+    @include center-child;
+    position: relative;
+    cursor: pointer;
+
+    &.black {
+        background-color: $black;
+        color: $white;
+    }
+
+    &.white {
+        color: $black;
+        background-color: $white;
+    }
+
+    .fa-angle-down {
+        margin-left: 12px;
+    }
+}

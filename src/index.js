@@ -1,13 +1,28 @@
+import './static/style.scss';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { 
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
+import routes from './routes';
+import DefaultLayout from './layouts/DefaultLayout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <Router>
+        <App >
+            <Routes>
+                {routes.map(({path, Component, defaultLayout}) => {
+                    return <Route key={uuid()} path={path} element={
+                                <Component children={defaultLayout ? <DefaultLayout /> : ''}/>
+                            }>
+                            </Route>
+                })}
+            </Routes>
+        </App>
+    </Router>
 );
-
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
