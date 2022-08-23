@@ -8,6 +8,8 @@ function RelatedSection({ title, keyword }) {
     const [images, setImages] = useState([]);
     const LIMIT = 4;
 
+    console.log('RelatedSection re-render');
+
     useEffect(() => {
         const fetchData = async () => {
             const result = await fetchImages(keyword, LIMIT);

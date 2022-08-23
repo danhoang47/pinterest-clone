@@ -5,11 +5,9 @@ import {
     faCircleXmark
 } from '@fortawesome/free-solid-svg-icons';
 import './SearchBar.scss'
-import SearchRelated from './components/SearchRelated';
-import { v4 as uuid } from 'uuid'
 import OverlayContext from '../../utils/Context/OverlayContext';
 
-function SearchBar({ placeholder }) {
+function SearchBar({ placeholder, render }) {
     const [keyword, setKeyword] = useState('');
     const [isFocus, setFocus] = useState(false);
     const searchBarRef = useRef();
@@ -22,7 +20,6 @@ function SearchBar({ placeholder }) {
     // false
     const handleFocus = (e) => {
         const ref = searchBarRef.current;
-
         if ((ref.contains(e.target) || ref === e.target ) 
             && !isFocus) {
                 setPrevState(setFocus);
@@ -85,26 +82,7 @@ function SearchBar({ placeholder }) {
                     </div>
                 </>    
             )}
-            <SearchRelated
-                isDisplay={isFocus}
-                related={[
-                    {
-                        id: uuid(),
-                        title: 'Spotlight',
-                        keyword: 'spotlight'
-                    },
-                    {
-                        id: uuid(),
-                        title: 'Ideas',
-                        keyword: 'idea'
-                    },
-                    {
-                        id: uuid(),
-                        title: 'Famous',
-                        keyword: 'anime'
-                    }
-                ]}
-            />
+            {render(isFocus)}
         </div>
     );
 }

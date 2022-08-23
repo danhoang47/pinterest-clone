@@ -19,10 +19,31 @@ import {
 import './NavBar.scss'
 import '../../../../static/style.scss'
 import Content from '../Content'
+import SearchRelated from '../../../../components/SearchBar/components/SearchRelated';
+import { v4 as uuid } from 'uuid';
+import { useMemo } from 'react';
 
 function NavBar({ children }) {
     
     console.log("NavBar re-render");
+
+    const related = useMemo(() => ([
+        {
+            id: uuid(),
+            title: 'Spotlight',
+            keyword: 'spotlight'
+        },
+        {
+            id: uuid(),
+            title: 'Ideas',
+            keyword: 'idea'
+        },
+        {
+            id: uuid(),
+            title: 'Famous',
+            keyword: 'anime'
+        }
+    ]), [])
     
     return (  
         <div className="nav-bar">
@@ -59,6 +80,12 @@ function NavBar({ children }) {
             </Button>
             <SearchBar
                 placeholder="Tìm kiếm"
+                render={(isFocus) => (
+                    <SearchRelated
+                        isDisplay={isFocus}
+                        related={related}
+                    />
+                )}
             />
             <IconButton color='gray' render={() => (
                 <Content>

@@ -3,6 +3,8 @@ import { memo } from 'react';
 import './SearchRelated.scss'
 
 function SearchRelated({ related, isDisplay }) {
+    console.log('SearchRelated re-render');
+
     return (  
         <div 
             className='search-related'
