@@ -1,7 +1,8 @@
+import './Column.scss'
 
 function Column({ children }) {
     return (  
-        <div>
+        <div className='column'>
             {children}
         </div>
     );

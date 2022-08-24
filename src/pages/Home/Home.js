@@ -1,16 +1,16 @@
-import Content from './components/Content' 
-import OverlayContext from '../../utils/Context/OverlayContext';
-import { useContext } from 'react';
+import './Home.scss';
+import {
+    useEffect
+} from 'react';
 
-function Home({ children }) {
-    const { isOverlay } = useContext(OverlayContext);
-
-    console.log(isOverlay);
+function Home({ children, render }) {
 
     return (  
-        <div className={`home ${isOverlay ? 'overlay' : ''}`}>
+        <div className='home'>
             {children}
-            <Content />
+            {render(
+                
+            )}
         </div>
     );
 }

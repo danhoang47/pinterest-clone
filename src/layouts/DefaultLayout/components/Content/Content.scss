@@ -5,9 +5,11 @@
     font-size: 16px;
     right: -80px;
     height: 760px;
-    box-shadow: 0 0 10px 0 rgb(235, 235, 235);
+    box-shadow: 0 0 8px 0 #959494;
     border-radius: 20px;
     animation: slide-down 0.15s linear;
+    overflow: hidden;
+    background-color: white;
     
     &::-webkit-scrollbar {
         display: none;

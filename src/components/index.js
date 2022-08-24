@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 import IconButton from './IconButton';
 import DropMenu from './DropMenu';
 import Card from './Card'
+import Content from './Content';
 
 export {
     Card,
@@ -11,5 +12,6 @@ export {
     Header,
     SearchBar,
     IconButton,
-    DropMenu
+    DropMenu,
+    Content
 }

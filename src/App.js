@@ -1,5 +1,8 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import OverlayContext from "./utils/Context/OverlayContext";
+import { 
+  Content 
+} from './components'
 
 function App({ children }) { 
   const [isOverlay, setOverlay] = useState(false);
@@ -13,7 +16,10 @@ function App({ children }) {
 
   return (
       <OverlayContext.Provider value={passedValue}>
-        <div className="App" style={{ position: 'relative' }}>    
+        <div 
+          className="App" 
+          style={{ position: 'relative' }}
+        >    
           {children}
         </div>
       </OverlayContext.Provider>
